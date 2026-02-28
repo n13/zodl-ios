@@ -38,6 +38,7 @@ extension SDKSynchronizerClient: TestDependencyKey {
         isInitialized: unimplemented("\(Self.self).isInitialized", placeholder: false),
         importAccount: unimplemented("\(Self.self).importAccount", placeholder: nil),
         rewind: unimplemented("\(Self.self).rewind", placeholder: Fail(error: "Error").eraseToAnyPublisher()),
+        forceRewind: unimplemented("\(Self.self).forceRewind"),
         getAllTransactions: unimplemented("\(Self.self).getAllTransactions", placeholder: []),
         transactionStatesFromZcashTransactions: unimplemented("\(Self.self).transactionStatesFromZcashTransactions", placeholder: []),
         getMemos: unimplemented("\(Self.self).getMemos", placeholder: []),
@@ -92,6 +93,7 @@ extension SDKSynchronizerClient {
         isInitialized: { false },
         importAccount: { _, _, _, _, _, _ in nil },
         rewind: { _ in Empty<Void, Error>().eraseToAnyPublisher() },
+        forceRewind: { _ in },
         getAllTransactions: { _ in [] },
         transactionStatesFromZcashTransactions: { _, _ in [] },
         getMemos: { _ in [] },
@@ -148,6 +150,7 @@ extension SDKSynchronizerClient {
         isInitialized: @escaping () -> Bool = { false },
         importAccount: @escaping (String, [UInt8]?, Zip32AccountIndex?, AccountPurpose, String, String?) async throws -> AccountUUID? = { _, _, _, _, _, _ in nil },
         rewind: @escaping (RewindPolicy) -> AnyPublisher<Void, Error> = { _ in return Empty<Void, Error>().eraseToAnyPublisher() },
+        forceRewind: @escaping (BlockHeight) async throws -> Void = { _ in },
         getAllTransactions: @escaping (AccountUUID?) -> IdentifiedArrayOf<TransactionState> = { _ in
             let mockedCleared: [TransactionStateMockHelper] = [
                 TransactionStateMockHelper(date: 1651039202, amount: Zatoshi(1), status: .paid, uuid: "aa11"),

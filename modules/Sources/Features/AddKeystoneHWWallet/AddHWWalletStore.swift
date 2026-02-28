@@ -115,7 +115,7 @@ public struct AddKeystoneHWWallet {
                         if let uuid {
                             await send(.accountImported(uuid))
                             do {
-                                for try await _ in sdkSynchronizer.rewind(.height(blockheight: birthday)).values { }
+                                try await sdkSynchronizer.forceRewind(birthday)
                             } catch { }
                             await send(.accountImportSucceeded)
                         }

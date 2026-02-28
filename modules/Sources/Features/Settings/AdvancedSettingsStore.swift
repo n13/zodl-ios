@@ -26,7 +26,6 @@ public struct AdvancedSettings {
     }
 
     public enum Action: Equatable {
-        case deepRescanTapped
         case operationAccessCheck(State.Operation)
         case operationAccessGranted(State.Operation)
     }
@@ -38,9 +37,6 @@ public struct AdvancedSettings {
     public var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
-            case .deepRescanTapped:
-                return .none
-
             case .operationAccessCheck(let operation):
                 switch operation {
                 case .chooseServer, .torSetup:

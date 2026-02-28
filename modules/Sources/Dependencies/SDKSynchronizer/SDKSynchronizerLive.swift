@@ -88,6 +88,7 @@ extension SDKSynchronizerClient: DependencyKey {
                 )
             },
             rewind: { synchronizer.rewind($0) },
+            forceRewind: { _ in },
             getAllTransactions: { accountUUID in
                 let clearedTransactions = try await synchronizer.allTransactions()
                 

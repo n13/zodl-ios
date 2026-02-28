@@ -50,19 +50,17 @@ extension Root {
                 state.destinationState.destination = .home
                 return rewind(policy: .birthday, sourceAction: .fullRescan)
 
-            case .confirmationDialog(.presented(.deepRescan)):
-                state.destinationState.destination = .home
-                return rewind(policy: .height(blockheight: 3_000_000), sourceAction: .deepRescan)
-
             case let .debug(.rewindDone(error, _)):
                 if let error {
-                    print("Rewind failed with error: \(error), but starting sync anyway.")
-                }
-                return .run { send in
-                    do {
-                        try await sdkSynchronizer.start(false)
-                    } catch {
-                        await send(.debug(.cantStartSync(error.toZcashError())))
+                    state.alert = AlertState.rewindFailed(error.toZcashError())
+                    return .none
+                } else {
+                    return .run { send in
+                        do {
+                            try await sdkSynchronizer.start(false)
+                        } catch {
+                            await send(.debug(.cantStartSync(error.toZcashError())))
+                        }
                     }
                 }
                 

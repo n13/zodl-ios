@@ -180,7 +180,6 @@ public struct Root {
 
     public enum Action: BindableAction {
         public enum ConfirmationDialog: Equatable {
-            case deepRescan
             case fullRescan
             case quickRescan
         }
@@ -693,9 +692,6 @@ extension ConfirmationDialogState where Action == Root.Action.ConfirmationDialog
             }
             ButtonState(role: .destructive, action: .fullRescan) {
                 TextState(L10n.Root.Debug.Dialog.Rescan.Option.full)
-            }
-            ButtonState(role: .destructive, action: .deepRescan) {
-                TextState(L10n.Root.Debug.Dialog.Rescan.Option.deep)
             }
             ButtonState(role: .cancel) {
                 TextState(L10n.General.cancel)

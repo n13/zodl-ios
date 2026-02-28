@@ -59,17 +59,10 @@ public struct AdvancedSettingsView: View {
 
                         ActionRow(
                             icon: Asset.Assets.Icons.shieldZap.image,
-                            title: L10n.Settings.private
-                        ) {
-                            store.send(.operationAccessCheck(.torSetup))
-                        }
-
-                        ActionRow(
-                            icon: Asset.Assets.refreshCCW.image,
-                            title: L10n.Root.Debug.Dialog.Rescan.Option.deep,
+                            title: L10n.Settings.private,
                             divider: false
                         ) {
-                            store.send(.deepRescanTapped)
+                            store.send(.operationAccessCheck(.torSetup))
                         }
                     }
                     .listRowInsets(EdgeInsets())

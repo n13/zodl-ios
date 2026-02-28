@@ -41,6 +41,7 @@ public struct SDKSynchronizerClient {
     public let importAccount: (String, [UInt8]?, Zip32AccountIndex?, AccountPurpose, String, String?) async throws -> AccountUUID?
     
     public let rewind: (RewindPolicy) -> AnyPublisher<Void, Error>
+    public let forceRewind: (BlockHeight) async throws -> Void
     
     public var getAllTransactions: (AccountUUID?) async throws -> IdentifiedArrayOf<TransactionState>
     public var transactionStatesFromZcashTransactions: (AccountUUID?, [ZcashTransaction.Overview]) async throws -> IdentifiedArrayOf<TransactionState>

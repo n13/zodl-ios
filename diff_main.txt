@@ -1,0 +1,1460 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 64347c85..326f66f2 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -6,6 +6,12 @@ directly impact users rather than highlighting other crucial architectural updat
+ 
+ ## [Unreleased]
+ 
++## 3.0.0 build 2 (2026-02-26)
++
++### Changed
++- Zashi->Zodl rebrand
++- Fixes
++
+ ## 2.4.12 build 3 (2026-01-29)
+ 
+ ### Changed
+diff --git a/REMOVE-LoggerProxy.swift.txt b/REMOVE-LoggerProxy.swift.txt
+new file mode 100644
+index 00000000..46181031
+--- /dev/null
++++ b/REMOVE-LoggerProxy.swift.txt
+@@ -0,0 +1 @@
++// The LoggerProxy.swift file is removed from the project as per instructions.
+diff --git a/modules/Package.resolved b/modules/Package.resolved
+index 2842883f..7fbcb5df 100644
+--- a/modules/Package.resolved
++++ b/modules/Package.resolved
+@@ -1,30 +1,39 @@
+ {
+   "pins" : [
+     {
+-      "identity" : "abseil-cpp-binary",
++      "identity" : "base32",
+       "kind" : "remoteSourceControl",
+-      "location" : "https://github.com/google/abseil-cpp-binary.git",
++      "location" : "https://github.com/ekscrypto/Base32.git",
+       "state" : {
+-        "revision" : "194a6706acbd25e4ef639bcaddea16e8758a3e27",
+-        "version" : "1.2024011602.0"
++        "revision" : "6389546e8e9a34a9d9db452726900383f3e4ac57",
++        "version" : "1.2.0"
+       }
+     },
+     {
+-      "identity" : "app-check",
++      "identity" : "bcswiftdcbor",
+       "kind" : "remoteSourceControl",
+-      "location" : "https://github.com/google/app-check.git",
++      "location" : "https://github.com/BlockchainCommons/BCSwiftDCBOR",
+       "state" : {
+-        "revision" : "3b62f154d00019ae29a71e9738800bb6f18b236d",
+-        "version" : "10.19.2"
++        "revision" : "21efa67ada2f22a6c277e1961f1059bb376e9b1a",
++        "version" : "2.0.2"
+       }
+     },
+     {
+-      "identity" : "base32",
++      "identity" : "bcswiftfloat16",
+       "kind" : "remoteSourceControl",
+-      "location" : "https://github.com/ekscrypto/Base32.git",
++      "location" : "https://github.com/blockchaincommons/BCSwiftFloat16",
+       "state" : {
+-        "revision" : "6389546e8e9a34a9d9db452726900383f3e4ac57",
+-        "version" : "1.2.0"
++        "revision" : "a27f3935a7b1db715713eda67369b02feade2ded",
++        "version" : "2.0.0"
++      }
++    },
++    {
++      "identity" : "bcswifttags",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/BlockchainCommons/BCSwiftTags",
++      "state" : {
++        "revision" : "ced8d92c7cc53375cdf9806c59251fe0161f02ec",
++        "version" : "0.2.3"
+       }
+     },
+     {
+@@ -72,58 +81,13 @@
+         "version" : "2.4.1"
+       }
+     },
+-    {
+-      "identity" : "firebase-ios-sdk",
+-      "kind" : "remoteSourceControl",
+-      "location" : "https://github.com/firebase/firebase-ios-sdk",
+-      "state" : {
+-        "revision" : "eca84fd638116dd6adb633b5a3f31cc7befcbb7d",
+-        "version" : "10.29.0"
+-      }
+-    },
+     {
+       "identity" : "flexa-ios",
+       "kind" : "remoteSourceControl",
+       "location" : "https://github.com/flexa/flexa-ios.git",
+       "state" : {
+-        "revision" : "aae0c067058946bbeb18be71593e38017c1c5af4",
+-        "version" : "1.0.5"
+-      }
+-    },
+-    {
+-      "identity" : "googleappmeasurement",
+-      "kind" : "remoteSourceControl",
+-      "location" : "https://github.com/google/GoogleAppMeasurement.git",
+-      "state" : {
+-        "revision" : "fe727587518729046fc1465625b9afd80b5ab361",
+-        "version" : "10.28.0"
+-      }
+-    },
+-    {
+-      "identity" : "googledatatransport",
+-      "kind" : "remoteSourceControl",
+-      "location" : "https://github.com/google/GoogleDataTransport.git",
+-      "state" : {
+-        "revision" : "a732a4b47f59e4f725a2ea10f0c77e93a7131117",
+-        "version" : "9.3.0"
+-      }
+-    },
+-    {
+-      "identity" : "googleutilities",
+-      "kind" : "remoteSourceControl",
+-      "location" : "https://github.com/google/GoogleUtilities.git",
+-      "state" : {
+-        "revision" : "bc27fad73504f3d4af235de451f02ee22586ebd3",
+-        "version" : "7.12.1"
+-      }
+-    },
+-    {
+-      "identity" : "grpc-binary",
+-      "kind" : "remoteSourceControl",
+-      "location" : "https://github.com/google/grpc-binary.git",
+-      "state" : {
+-        "revision" : "e9fad491d0673bdda7063a0341fb6b47a30c5359",
+-        "version" : "1.62.2"
++        "revision" : "5f1d72dc82ee86c4749d7bb158c86599d4035c22",
++        "version" : "1.1.4"
+       }
+     },
+     {
+@@ -131,26 +95,8 @@
+       "kind" : "remoteSourceControl",
+       "location" : "https://github.com/grpc/grpc-swift.git",
+       "state" : {
+-        "revision" : "d5e0d7048089bc68b7f70f7ad3edc98c3f771ac1",
+-        "version" : "1.24.0"
+-      }
+-    },
+-    {
+-      "identity" : "gtm-session-fetcher",
+-      "kind" : "remoteSourceControl",
+-      "location" : "https://github.com/google/gtm-session-fetcher.git",
+-      "state" : {
+-        "revision" : "d415594121c9e8a4f9d79cecee0965cf35e74dbd",
+-        "version" : "3.1.1"
+-      }
+-    },
+-    {
+-      "identity" : "interop-ios-for-google-sdks",
+-      "kind" : "remoteSourceControl",
+-      "location" : "https://github.com/google/interop-ios-for-google-sdks.git",
+-      "state" : {
+-        "revision" : "2d12673670417654f08f5f90fdd62926dc3a2648",
+-        "version" : "100.0.0"
++        "revision" : "956259f65a34c58dd76ae5df4511712e1087726b",
++        "version" : "1.27.3"
+       }
+     },
+     {
+@@ -163,39 +109,30 @@
+       }
+     },
+     {
+-      "identity" : "leveldb",
++      "identity" : "keystone-sdk-ios",
+       "kind" : "remoteSourceControl",
+-      "location" : "https://github.com/firebase/leveldb.git",
++      "location" : "https://github.com/KeystoneHQ/keystone-sdk-ios/",
+       "state" : {
+-        "revision" : "0706abcc6b0bd9cedfbb015ba840e4a780b5159b",
+-        "version" : "1.22.2"
++        "revision" : "7dbf7476bf6b04b204f79e37f71115574acb3e40",
++        "version" : "0.8.6"
+       }
+     },
+     {
+-      "identity" : "mnemonicswift",
++      "identity" : "lottie-spm",
+       "kind" : "remoteSourceControl",
+-      "location" : "https://github.com/zcash-hackworks/MnemonicSwift",
++      "location" : "https://github.com/airbnb/lottie-spm.git",
+       "state" : {
+-        "revision" : "716a2c32ac2bbd8a1499ac834077df42b75edc85",
+-        "version" : "2.2.4"
++        "revision" : "69faaefa7721fba9e434a52c16adf4329c9084db",
++        "version" : "4.6.0"
+       }
+     },
+     {
+-      "identity" : "nanopb",
+-      "kind" : "remoteSourceControl",
+-      "location" : "https://github.com/firebase/nanopb.git",
+-      "state" : {
+-        "revision" : "819d0a2173aff699fb8c364b6fb906f7cdb1a692",
+-        "version" : "2.30909.0"
+-      }
+-    },
+-    {
+-      "identity" : "promises",
++      "identity" : "mnemonicswift",
+       "kind" : "remoteSourceControl",
+-      "location" : "https://github.com/google/promises.git",
++      "location" : "https://github.com/zcash-hackworks/MnemonicSwift",
+       "state" : {
+-        "revision" : "e70e889c0196c76d22759eb50d6a0270ca9f1d9e",
+-        "version" : "2.3.1"
++        "revision" : "2d7f3e76e904621e111efada6cc9575f39543bb2",
++        "version" : "2.2.5"
+       }
+     },
+     {
+@@ -216,13 +153,31 @@
+         "version" : "1.0.6"
+       }
+     },
++    {
++      "identity" : "swift-algorithms",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/apple/swift-algorithms.git",
++      "state" : {
++        "revision" : "87e50f483c54e6efd60e885f7f5aa946cee68023",
++        "version" : "1.2.1"
++      }
++    },
++    {
++      "identity" : "swift-atomics",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/apple/swift-atomics.git",
++      "state" : {
++        "revision" : "b601256eab081c0f92f059e12818ac1d4f178ff7",
++        "version" : "1.3.0"
++      }
++    },
+     {
+       "identity" : "swift-case-paths",
+       "kind" : "remoteSourceControl",
+       "location" : "https://github.com/pointfreeco/swift-case-paths",
+       "state" : {
+-        "revision" : "bc92c4b27f9a84bfb498cdbfdf35d5a357e9161f",
+-        "version" : "1.5.6"
++        "revision" : "6989976265be3f8d2b5802c722f9ba168e227c71",
++        "version" : "1.7.2"
+       }
+     },
+     {
+@@ -248,8 +203,8 @@
+       "kind" : "remoteSourceControl",
+       "location" : "https://github.com/pointfreeco/swift-composable-architecture",
+       "state" : {
+-        "revision" : "56149436a3c3dbf605a89a204aaa904de8ba4580",
+-        "version" : "1.15.2"
++        "revision" : "74a5fa0d02b17ba5bbd9743dc49b4d7f3bbbed96",
++        "version" : "1.24.1"
+       }
+     },
+     {
+@@ -284,8 +239,26 @@
+       "kind" : "remoteSourceControl",
+       "location" : "https://github.com/pointfreeco/swift-dependencies",
+       "state" : {
+-        "revision" : "0fc0255e780bf742abeef29dec80924f5f0ae7b9",
+-        "version" : "1.4.1"
++        "revision" : "c79f72b3e67a1eb64f66f76704c22ed6a5c1ed84",
++        "version" : "1.11.0"
++      }
++    },
++    {
++      "identity" : "swift-http-structured-headers",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/apple/swift-http-structured-headers.git",
++      "state" : {
++        "revision" : "76d7627bd88b47bf5a0f8497dd244885960dde0b",
++        "version" : "1.6.0"
++      }
++    },
++    {
++      "identity" : "swift-http-types",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/apple/swift-http-types.git",
++      "state" : {
++        "revision" : "45eb0224913ea070ec4fba17291b9e7ecf4749ca",
++        "version" : "1.5.1"
+       }
+     },
+     {
+@@ -297,13 +270,85 @@
+         "version" : "1.1.0"
+       }
+     },
++    {
++      "identity" : "swift-log",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/apple/swift-log.git",
++      "state" : {
++        "revision" : "bbd81b6725ae874c69e9b8c8804d462356b55523",
++        "version" : "1.10.1"
++      }
++    },
+     {
+       "identity" : "swift-navigation",
+       "kind" : "remoteSourceControl",
+       "location" : "https://github.com/pointfreeco/swift-navigation",
+       "state" : {
+-        "revision" : "16a27ab7ae0abfefbbcba73581b3e2380b47a579",
+-        "version" : "2.2.2"
++        "revision" : "e7441dc4dfec6a4ae929e614e3c1e67c6639d164",
++        "version" : "2.7.0"
++      }
++    },
++    {
++      "identity" : "swift-nio",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/apple/swift-nio.git",
++      "state" : {
++        "revision" : "e932d3c4d8f77433c8f7093b5ebcbf91463948a0",
++        "version" : "2.95.0"
++      }
++    },
++    {
++      "identity" : "swift-nio-extras",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/apple/swift-nio-extras.git",
++      "state" : {
++        "revision" : "f1f6f772198bee35d99dd145f1513d8581a54f2c",
++        "version" : "1.26.0"
++      }
++    },
++    {
++      "identity" : "swift-nio-http2",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/apple/swift-nio-http2.git",
++      "state" : {
++        "revision" : "b6571f3db40799df5a7fc0e92c399aa71c883edd",
++        "version" : "1.40.0"
++      }
++    },
++    {
++      "identity" : "swift-nio-ssl",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/apple/swift-nio-ssl.git",
++      "state" : {
++        "revision" : "173cc69a058623525a58ae6710e2f5727c663793",
++        "version" : "2.36.0"
++      }
++    },
++    {
++      "identity" : "swift-nio-transport-services",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/apple/swift-nio-transport-services.git",
++      "state" : {
++        "revision" : "60c3e187154421171721c1a38e800b390680fb5d",
++        "version" : "1.26.0"
++      }
++    },
++    {
++      "identity" : "swift-numberkit",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/objecthub/swift-numberkit.git",
++      "state" : {
++        "revision" : "33af3f9011e45dcd8ee696492d30dbcd5a8a67f3",
++        "version" : "2.6.0"
++      }
++    },
++    {
++      "identity" : "swift-numerics",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/apple/swift-numerics.git",
++      "state" : {
++        "revision" : "0c0290ff6b24942dadb83a929ffaaa1481df04a2",
++        "version" : "1.1.1"
+       }
+     },
+     {
+@@ -320,8 +365,8 @@
+       "kind" : "remoteSourceControl",
+       "location" : "https://github.com/pointfreeco/swift-perception",
+       "state" : {
+-        "revision" : "bc67aa8e461351c97282c2419153757a446ae1c9",
+-        "version" : "1.3.5"
++        "revision" : "d924c62a70fca5f43872f286dbd7cef0957f1c01",
++        "version" : "1.6.0"
+       }
+     },
+     {
+@@ -329,8 +374,17 @@
+       "kind" : "remoteSourceControl",
+       "location" : "https://github.com/apple/swift-protobuf.git",
+       "state" : {
+-        "revision" : "ce20dc083ee485524b802669890291c0d8090170",
+-        "version" : "1.22.1"
++        "revision" : "5596511fce902e649c403cd4d6d5da1254f142b7",
++        "version" : "1.35.1"
++      }
++    },
++    {
++      "identity" : "swift-sharing",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/pointfreeco/swift-sharing",
++      "state" : {
++        "revision" : "641edfa456fa6a927d12137c38fc71cbd9861be0",
++        "version" : "2.1.0"
+       }
+     },
+     {
+@@ -342,6 +396,15 @@
+         "version" : "509.1.1"
+       }
+     },
++    {
++      "identity" : "swift-system",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/apple/swift-system.git",
++      "state" : {
++        "revision" : "7c6ad0fc39d0763e0b699210e4124afd5041c5df",
++        "version" : "1.6.4"
++      }
++    },
+     {
+       "identity" : "swift-url-routing",
+       "kind" : "remoteSourceControl",
+@@ -360,13 +423,22 @@
+         "version" : "6.6.2"
+       }
+     },
++    {
++      "identity" : "swiftsortedcollections",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/wolfmcnally/SwiftSortedCollections",
++      "state" : {
++        "revision" : "dd6c8e0eaef987e55a35c056d185144a7c71fc19",
++        "version" : "0.1.0"
++      }
++    },
+     {
+       "identity" : "swiftui-introspect",
+       "kind" : "remoteSourceControl",
+       "location" : "https://github.com/siteline/swiftui-introspect",
+       "state" : {
+-        "revision" : "121c146fe591b1320238d054ae35c81ffa45f45a",
+-        "version" : "0.12.0"
++        "revision" : "a08b87f96b41055577721a6e397562b21ad52454",
++        "version" : "26.0.0"
+       }
+     },
+     {
+@@ -378,13 +450,22 @@
+         "version" : "3.2.0"
+       }
+     },
++    {
++      "identity" : "urkit",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/BlockchainCommons/URKit",
++      "state" : {
++        "revision" : "c0a447560768e2552cf85a586dea8cfc26162891",
++        "version" : "15.1.0"
++      }
++    },
+     {
+       "identity" : "xctest-dynamic-overlay",
+       "kind" : "remoteSourceControl",
+       "location" : "https://github.com/pointfreeco/xctest-dynamic-overlay",
+       "state" : {
+-        "revision" : "770f990d3e4eececb57ac04a6076e22f8c97daeb",
+-        "version" : "1.4.2"
++        "revision" : "dfd70507def84cb5fb821278448a262c6ff2bbad",
++        "version" : "1.9.0"
+       }
+     },
+     {
+@@ -392,8 +473,8 @@
+       "kind" : "remoteSourceControl",
+       "location" : "https://github.com/Electric-Coin-Company/zcash-light-client-ffi",
+       "state" : {
+-        "revision" : "ea902e98471587942b8508569384f8dbe69b7553",
+-        "version" : "0.10.1"
++        "revision" : "d108087abc62c5576efc8e49971e932180cf05d4",
++        "version" : "0.19.1"
+       }
+     },
+     {
+@@ -401,17 +482,17 @@
+       "kind" : "remoteSourceControl",
+       "location" : "https://github.com/pacu/zcash-swift-payment-uri",
+       "state" : {
+-        "revision" : "58e049fda82e56fbaf5abeee15c7a1608b173018",
+-        "version" : "0.1.0-beta.9"
++        "revision" : "798053ba8a2d80560b5e3f4899a8b35ac0c348bb",
++        "version" : "1.0.1"
+       }
+     },
+     {
+       "identity" : "zcash-swift-wallet-sdk",
+       "kind" : "remoteSourceControl",
+-      "location" : "https://github.com/Electric-Coin-Company/zcash-swift-wallet-sdk",
++      "location" : "https://github.com/zcash/zcash-swift-wallet-sdk",
+       "state" : {
+-        "revision" : "187753fc13d37de70d6212b953755d61af4f5f89",
+-        "version" : "2.2.5"
++        "revision" : "3badee1a66304c340f03d1ae49ca4e2c17a0fbeb",
++        "version" : "2.4.4"
+       }
+     }
+   ],
+diff --git a/modules/Package.swift b/modules/Package.swift
+index a686ef21..1bd4de23 100644
+--- a/modules/Package.swift
++++ b/modules/Package.swift
+@@ -835,6 +835,7 @@ let package = Package(
+                 "SupportDataGenerator",
+                 "TorSetup",
+                 "UIComponents",
++                "WalletBirthday",
+                 "WalletStorage",
+                 "WhatsNew",
+                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+diff --git a/modules/Sources/Features/AddKeystoneHWWallet/AddHWWalletStore.swift b/modules/Sources/Features/AddKeystoneHWWallet/AddHWWalletStore.swift
+index 0bf42cf9..3e840c20 100644
+--- a/modules/Sources/Features/AddKeystoneHWWallet/AddHWWalletStore.swift
++++ b/modules/Sources/Features/AddKeystoneHWWallet/AddHWWalletStore.swift
+@@ -58,6 +58,7 @@ public struct AddKeystoneHWWallet {
+         case backToHomeTapped
+         case binding(BindingAction<AddKeystoneHWWallet.State>)
+         case forgetThisDeviceTapped
++        case importKeystoneAccount(BlockHeight)
+         case loadedWalletAccounts([WalletAccount], AccountUUID)
+         case onAppear
+         case readyToScanTapped
+@@ -95,6 +96,9 @@ public struct AddKeystoneHWWallet {
+                 return .none
+ 
+             case .unlockTapped:
++                return .none
++
++            case .importKeystoneAccount(let birthday):
+                 guard let account = state.zcashAccounts, let firstAccount = account.accounts.first else {
+                     return .none
+                 }
+@@ -110,10 +114,12 @@ public struct AddKeystoneHWWallet {
+                         )
+                         if let uuid {
+                             await send(.accountImported(uuid))
++                            do {
++                                for try await _ in sdkSynchronizer.rewind(.height(blockheight: birthday)).values { }
++                            } catch { }
+                             await send(.accountImportSucceeded)
+                         }
+                     } catch {
+-                        // TODO: error handling
+                         await send(.accountImportFailed)
+                     }
+                 }
+diff --git a/modules/Sources/Features/CoordFlows/AddKeystoneHWWalletCoordFlowCoordinator.swift b/modules/Sources/Features/CoordFlows/AddKeystoneHWWalletCoordFlowCoordinator.swift
+index 8ae83b7a..a3595db8 100644
+--- a/modules/Sources/Features/CoordFlows/AddKeystoneHWWalletCoordFlowCoordinator.swift
++++ b/modules/Sources/Features/CoordFlows/AddKeystoneHWWalletCoordFlowCoordinator.swift
+@@ -8,10 +8,12 @@
+ import ComposableArchitecture
+ import Generated
+ import AudioServices
++import ZcashLightClientKit
+ 
+ // Path
+ import AddKeystoneHWWallet
+ import Scan
++import WalletBirthday
+ 
+ extension AddKeystoneHWWalletCoordFlow {
+     public func coordinatorReduce() -> Reduce<AddKeystoneHWWalletCoordFlow.State, AddKeystoneHWWalletCoordFlow.Action> {
+@@ -31,6 +33,42 @@ extension AddKeystoneHWWalletCoordFlow {
+                 let _ = state.path.popLast()
+                 return .none
+                 
++                // MARK: - Account Selection
++
++            case .path(.element(id: _, action: .accountHWWalletSelection(.unlockTapped))):
++                state.path.append(.walletBirthday(WalletBirthday.State.initial))
++                return .none
++
++                // MARK: - Wallet Birthday
++
++            case .path(.element(id: _, action: .walletBirthday(.estimateHeightTapped))):
++                state.path.append(.estimateBirthdaysDate(WalletBirthday.State.initial))
++                return .none
++
++            case .path(.element(id: _, action: .walletBirthday(.restoreTapped))):
++                for element in state.path {
++                    if case .walletBirthday(let birthdayState) = element {
++                        return sendImportToAccountElement(birthday: birthdayState.estimatedHeight, state: &state)
++                    }
++                }
++                return .none
++
++            case .path(.element(id: _, action: .estimateBirthdaysDate(.estimateHeightReady))):
++                for element in state.path {
++                    if case .estimateBirthdaysDate(let dateState) = element {
++                        state.path.append(.estimatedBirthday(dateState))
++                    }
++                }
++                return .none
++
++            case .path(.element(id: _, action: .estimatedBirthday(.restoreTapped))):
++                for element in state.path {
++                    if case .estimatedBirthday(let birthdayState) = element {
++                        return sendImportToAccountElement(birthday: birthdayState.estimatedHeight, state: &state)
++                    }
++                }
++                return .none
++
+                 // MARK: - Self
+ 
+             case .addKeystoneHWWallet(.readyToScanTapped):
+@@ -45,4 +83,16 @@ extension AddKeystoneHWWalletCoordFlow {
+             }
+         }
+     }
++
++    private func sendImportToAccountElement(
++        birthday: BlockHeight,
++        state: inout AddKeystoneHWWalletCoordFlow.State
++    ) -> Effect<AddKeystoneHWWalletCoordFlow.Action> {
++        for (id, element) in zip(state.path.ids, state.path) {
++            if case .accountHWWalletSelection = element {
++                return .send(.path(.element(id: id, action: .accountHWWalletSelection(.importKeystoneAccount(birthday)))))
++            }
++        }
++        return .none
++    }
+ }
+diff --git a/modules/Sources/Features/CoordFlows/AddKeystoneHWWalletCoordFlowStore.swift b/modules/Sources/Features/CoordFlows/AddKeystoneHWWalletCoordFlowStore.swift
+index ef010150..55b7f94f 100644
+--- a/modules/Sources/Features/CoordFlows/AddKeystoneHWWalletCoordFlowStore.swift
++++ b/modules/Sources/Features/CoordFlows/AddKeystoneHWWalletCoordFlowStore.swift
+@@ -14,13 +14,17 @@ import AudioServices
+ // Path
+ import AddKeystoneHWWallet
+ import Scan
++import WalletBirthday
+ 
+ @Reducer
+ public struct AddKeystoneHWWalletCoordFlow {
+     @Reducer
+     public enum Path {
+         case accountHWWalletSelection(AddKeystoneHWWallet)
++        case estimateBirthdaysDate(WalletBirthday)
++        case estimatedBirthday(WalletBirthday)
+         case scan(Scan)
++        case walletBirthday(WalletBirthday)
+     }
+     
+     @ObservableState
+diff --git a/modules/Sources/Features/CoordFlows/AddKeystoneHWWalletCoordFlowView.swift b/modules/Sources/Features/CoordFlows/AddKeystoneHWWalletCoordFlowView.swift
+index a6ea57f2..c40a074c 100644
+--- a/modules/Sources/Features/CoordFlows/AddKeystoneHWWalletCoordFlowView.swift
++++ b/modules/Sources/Features/CoordFlows/AddKeystoneHWWalletCoordFlowView.swift
+@@ -14,6 +14,7 @@ import Generated
+ // Path
+ import AddKeystoneHWWallet
+ import Scan
++import WalletBirthday
+ 
+ public struct AddKeystoneHWWalletCoordFlowView: View {
+     @Environment(\.colorScheme) var colorScheme
+@@ -40,8 +41,14 @@ public struct AddKeystoneHWWalletCoordFlowView: View {
+                 switch store.case {
+                 case let .accountHWWalletSelection(store):
+                     AccountsSelectionView(store: store)
++                case let .estimateBirthdaysDate(store):
++                    WalletBirthdayEstimateDateView(store: store)
++                case let .estimatedBirthday(store):
++                    WalletBirthdayEstimatedHeightView(store: store)
+                 case let .scan(store):
+                     ScanView(store: store)
++                case let .walletBirthday(store):
++                    WalletBirthdayView(store: store)
+                 }
+             }
+         }
+diff --git a/modules/Sources/Features/Root/RootCoordinator.swift b/modules/Sources/Features/Root/RootCoordinator.swift
+index 7df09baf..84a21ce4 100644
+--- a/modules/Sources/Features/Root/RootCoordinator.swift
++++ b/modules/Sources/Features/Root/RootCoordinator.swift
+@@ -188,6 +188,21 @@ extension Root {
+                 state.path = nil
+                 return .none
+ 
++                // MARK: - Deep Rescan
++
++            case .settings(.path(.element(id: _, action: .advancedSettings(.deepRescanTapped)))):
++                state.path = nil
++                return .run { send in
++                    let targetBirthday: BlockHeight = 3_000_000
++                    print("DEEP_RESCAN: updating stored birthday to \(targetBirthday)")
++                    do {
++                        try walletStorage.updateBirthday(targetBirthday)
++                    } catch {
++                        print("DEEP_RESCAN: failed to update birthday: \(error)")
++                    }
++                    await send(.confirmationDialog(.presented(.deepRescan)))
++                }
++
+                 // MARK: - Reset Zashi
+ 
+             case .settings(.path(.element(id: _, action: .resetZashi(.deleteTapped(let areMetadataPreserved))))):
+diff --git a/modules/Sources/Features/Root/RootDebug.swift b/modules/Sources/Features/Root/RootDebug.swift
+index a89bf1c0..32072dfa 100644
+--- a/modules/Sources/Features/Root/RootDebug.swift
++++ b/modules/Sources/Features/Root/RootDebug.swift
+@@ -50,17 +50,19 @@ extension Root {
+                 state.destinationState.destination = .home
+                 return rewind(policy: .birthday, sourceAction: .fullRescan)
+ 
++            case .confirmationDialog(.presented(.deepRescan)):
++                state.destinationState.destination = .home
++                return rewind(policy: .height(blockheight: 3_000_000), sourceAction: .deepRescan)
++
+             case let .debug(.rewindDone(error, _)):
+                 if let error {
+-                    state.alert = AlertState.rewindFailed(error.toZcashError())
+-                    return .none
+-                } else {
+-                    return .run { send in
+-                        do {
+-                            try await sdkSynchronizer.start(false)
+-                        } catch {
+-                            await send(.debug(.cantStartSync(error.toZcashError())))
+-                        }
++                    print("Rewind failed with error: \(error), but starting sync anyway.")
++                }
++                return .run { send in
++                    do {
++                        try await sdkSynchronizer.start(false)
++                    } catch {
++                        await send(.debug(.cantStartSync(error.toZcashError())))
+                     }
+                 }
+                 
+diff --git a/modules/Sources/Features/Root/RootStore.swift b/modules/Sources/Features/Root/RootStore.swift
+index 645e0784..d167aa9c 100644
+--- a/modules/Sources/Features/Root/RootStore.swift
++++ b/modules/Sources/Features/Root/RootStore.swift
+@@ -180,6 +180,7 @@ public struct Root {
+ 
+     public enum Action: BindableAction {
+         public enum ConfirmationDialog: Equatable {
++            case deepRescan
+             case fullRescan
+             case quickRescan
+         }
+@@ -693,6 +694,9 @@ extension ConfirmationDialogState where Action == Root.Action.ConfirmationDialog
+             ButtonState(role: .destructive, action: .fullRescan) {
+                 TextState(L10n.Root.Debug.Dialog.Rescan.Option.full)
+             }
++            ButtonState(role: .destructive, action: .deepRescan) {
++                TextState(L10n.Root.Debug.Dialog.Rescan.Option.deep)
++            }
+             ButtonState(role: .cancel) {
+                 TextState(L10n.General.cancel)
+             }
+diff --git a/modules/Sources/Features/Settings/AdvancedSettingsStore.swift b/modules/Sources/Features/Settings/AdvancedSettingsStore.swift
+index b9d02365..75b7d194 100644
+--- a/modules/Sources/Features/Settings/AdvancedSettingsStore.swift
++++ b/modules/Sources/Features/Settings/AdvancedSettingsStore.swift
+@@ -26,6 +26,7 @@ public struct AdvancedSettings {
+     }
+ 
+     public enum Action: Equatable {
++        case deepRescanTapped
+         case operationAccessCheck(State.Operation)
+         case operationAccessGranted(State.Operation)
+     }
+@@ -37,6 +38,9 @@ public struct AdvancedSettings {
+     public var body: some Reducer<State, Action> {
+         Reduce { state, action in
+             switch action {
++            case .deepRescanTapped:
++                return .none
++
+             case .operationAccessCheck(let operation):
+                 switch operation {
+                 case .chooseServer, .torSetup:
+diff --git a/modules/Sources/Features/Settings/AdvancedSettingsView.swift b/modules/Sources/Features/Settings/AdvancedSettingsView.swift
+index 1b580895..2334340c 100644
+--- a/modules/Sources/Features/Settings/AdvancedSettingsView.swift
++++ b/modules/Sources/Features/Settings/AdvancedSettingsView.swift
+@@ -59,11 +59,18 @@ public struct AdvancedSettingsView: View {
+ 
+                         ActionRow(
+                             icon: Asset.Assets.Icons.shieldZap.image,
+-                            title: L10n.Settings.private,
+-                            divider: false
++                            title: L10n.Settings.private
+                         ) {
+                             store.send(.operationAccessCheck(.torSetup))
+                         }
++
++                        ActionRow(
++                            icon: Asset.Assets.refreshCCW.image,
++                            title: L10n.Root.Debug.Dialog.Rescan.Option.deep,
++                            divider: false
++                        ) {
++                            store.send(.deepRescanTapped)
++                        }
+                     }
+                     .listRowInsets(EdgeInsets())
+                     .listRowBackground(Asset.Colors.background.color)
+diff --git a/modules/Sources/Features/Settings/SettingsCoordinator.swift b/modules/Sources/Features/Settings/SettingsCoordinator.swift
+index 0c9c3f0f..f8249b1d 100644
+--- a/modules/Sources/Features/Settings/SettingsCoordinator.swift
++++ b/modules/Sources/Features/Settings/SettingsCoordinator.swift
+@@ -8,6 +8,8 @@
+ import ComposableArchitecture
+ import Generated
+ 
++import ZcashLightClientKit
++
+ import About
+ import AddKeystoneHWWallet
+ import AddressBook
+@@ -19,6 +21,7 @@ import RecoveryPhraseDisplay
+ import Scan
+ import ServerSetup
+ import SendFeedback
++import WalletBirthday
+ import WhatsNew
+ import TorSetup
+ 
+@@ -36,9 +39,43 @@ extension Settings {
+                 state.path.append(.scan(scanState))
+                 return .none
+ 
++            case .path(.element(id: _, action: .accountHWWalletSelection(.unlockTapped))):
++                state.path.append(.walletBirthday(WalletBirthday.State.initial))
++                return .none
++
+             case .path(.element(id: _, action: .accountHWWalletSelection(.forgetThisDeviceTapped))):
+                 return .none
+ 
++                // MARK: - Wallet Birthday
++
++            case .path(.element(id: _, action: .walletBirthday(.estimateHeightTapped))):
++                state.path.append(.estimateBirthdaysDate(WalletBirthday.State.initial))
++                return .none
++
++            case .path(.element(id: _, action: .walletBirthday(.restoreTapped))):
++                for element in state.path {
++                    if case .walletBirthday(let birthdayState) = element {
++                        return sendImportToAccountElement(birthday: birthdayState.estimatedHeight, state: &state)
++                    }
++                }
++                return .none
++
++            case .path(.element(id: _, action: .estimateBirthdaysDate(.estimateHeightReady))):
++                for element in state.path {
++                    if case .estimateBirthdaysDate(let dateState) = element {
++                        state.path.append(.estimatedBirthday(dateState))
++                    }
++                }
++                return .none
++
++            case .path(.element(id: _, action: .estimatedBirthday(.restoreTapped))):
++                for element in state.path {
++                    if case .estimatedBirthday(let birthdayState) = element {
++                        return sendImportToAccountElement(birthday: birthdayState.estimatedHeight, state: &state)
++                    }
++                }
++                return .none
++
+                 // MARK: - Address Book
+ 
+             case let .path(.element(id: _, action: .addressBook(.editId(_, id)))):
+@@ -187,4 +224,16 @@ extension Settings {
+             }
+         }
+     }
++
++    private func sendImportToAccountElement(
++        birthday: BlockHeight,
++        state: inout Settings.State
++    ) -> Effect<Settings.Action> {
++        for (id, element) in zip(state.path.ids, state.path) {
++            if case .accountHWWalletSelection = element {
++                return .send(.path(.element(id: id, action: .accountHWWalletSelection(.importKeystoneAccount(birthday)))))
++            }
++        }
++        return .none
++    }
+ }
+diff --git a/modules/Sources/Features/Settings/SettingsStore.swift b/modules/Sources/Features/Settings/SettingsStore.swift
+index 6e503da9..a297b3e8 100644
+--- a/modules/Sources/Features/Settings/SettingsStore.swift
++++ b/modules/Sources/Features/Settings/SettingsStore.swift
+@@ -21,6 +21,7 @@ import RecoveryPhraseDisplay
+ import Scan
+ import ServerSetup
+ import SendFeedback
++import WalletBirthday
+ import WhatsNew
+ import TorSetup
+ 
+@@ -36,6 +37,8 @@ public struct Settings {
+         case advancedSettings(AdvancedSettings)
+         case chooseServerSetup(ServerSetup)
+         case currencyConversionSetup(CurrencyConversionSetup)
++        case estimateBirthdaysDate(WalletBirthday)
++        case estimatedBirthday(WalletBirthday)
+         case exportPrivateData(PrivateDataConsent)
+         case exportTransactionHistory(ExportTransactionHistory)
+         case recoveryPhrase(RecoveryPhraseDisplay)
+@@ -43,6 +46,7 @@ public struct Settings {
+         case scan(Scan)
+         case sendUsFeedback(SendFeedback)
+         case torSetup(TorSetup)
++        case walletBirthday(WalletBirthday)
+         case whatsNew(WhatsNew)
+     }
+     
+diff --git a/modules/Sources/Features/Settings/SettingsView.swift b/modules/Sources/Features/Settings/SettingsView.swift
+index dce56c30..22115bd2 100644
+--- a/modules/Sources/Features/Settings/SettingsView.swift
++++ b/modules/Sources/Features/Settings/SettingsView.swift
+@@ -15,6 +15,7 @@ import RecoveryPhraseDisplay
+ import Scan
+ import ServerSetup
+ import SendFeedback
++import WalletBirthday
+ import WhatsNew
+ import TorSetup
+ 
+@@ -128,6 +129,10 @@ public struct SettingsView: View {
+                     ServerSetupView(store: store)
+                 case let .currencyConversionSetup(store):
+                     CurrencyConversionSetupView(store: store)
++                case let .estimateBirthdaysDate(store):
++                    WalletBirthdayEstimateDateView(store: store)
++                case let .estimatedBirthday(store):
++                    WalletBirthdayEstimatedHeightView(store: store)
+                 case let .exportPrivateData(store):
+                     PrivateDataConsentView(store: store)
+                 case let .exportTransactionHistory(store):
+@@ -142,6 +147,8 @@ public struct SettingsView: View {
+                     SendFeedbackView(store: store)
+                 case let .torSetup(store):
+                     TorSetupView(store: store)
++                case let .walletBirthday(store):
++                    WalletBirthdayView(store: store)
+                 case let .whatsNew(store):
+                     WhatsNewView(store: store)
+                 }
+diff --git a/modules/Sources/Features/WalletBirthday/WalletBirthdayEstimatedHeightView.swift b/modules/Sources/Features/WalletBirthday/WalletBirthdayEstimatedHeightView.swift
+index 4bdd3302..2fdff636 100644
+--- a/modules/Sources/Features/WalletBirthday/WalletBirthdayEstimatedHeightView.swift
++++ b/modules/Sources/Features/WalletBirthday/WalletBirthdayEstimatedHeightView.swift
+@@ -52,6 +52,7 @@ public struct WalletBirthdayEstimatedHeightView: View {
+                 ZashiButton(L10n.ImportWallet.Button.restoreWallet) {
+                     store.send(.restoreTapped)
+                 }
++                .disabled(store.isRestoring)
+                 .padding(.bottom, 24)
+             }
+             .zashiBack()
+diff --git a/modules/Sources/Features/WalletBirthday/WalletBirthdayStore.swift b/modules/Sources/Features/WalletBirthday/WalletBirthdayStore.swift
+index 02a30bf6..f2182909 100644
+--- a/modules/Sources/Features/WalletBirthday/WalletBirthdayStore.swift
++++ b/modules/Sources/Features/WalletBirthday/WalletBirthdayStore.swift
+@@ -27,6 +27,7 @@ public struct WalletBirthday {
+     public struct State: Equatable {
+         public var birthday = ""
+         public var estimatedHeight = BlockHeight(0)
++        public var isRestoring = false
+         public var isValidBirthday = false
+         public var months: [String] = []
+         public var selectedMonth = ""
+@@ -89,6 +90,7 @@ public struct WalletBirthday {
+                 return .none
+ 
+             case .restoreTapped:
++                state.isRestoring = true
+                 return .none
+                 
+             case .copyBirthdayTapped:
+diff --git a/modules/Sources/Features/WalletBirthday/WalletBirthdayView.swift b/modules/Sources/Features/WalletBirthday/WalletBirthdayView.swift
+index b53019e6..ec91ad03 100644
+--- a/modules/Sources/Features/WalletBirthday/WalletBirthdayView.swift
++++ b/modules/Sources/Features/WalletBirthday/WalletBirthdayView.swift
+@@ -55,7 +55,7 @@ public struct WalletBirthdayView: View {
+                 ZashiButton(L10n.ImportWallet.Button.restoreWallet) {
+                     store.send(.restoreTapped)
+                 }
+-                .disabled(!store.isValidBirthday)
++                .disabled(!store.isValidBirthday || store.isRestoring)
+                 .padding(.bottom, 24)
+             }
+             .zashiBack()
+diff --git a/modules/Sources/Generated/L10n.swift b/modules/Sources/Generated/L10n.swift
+index b827f9ea..632f2da8 100644
+--- a/modules/Sources/Generated/L10n.swift
++++ b/modules/Sources/Generated/L10n.swift
+@@ -959,6 +959,8 @@ public enum L10n {
+           /// Rescan
+           public static let title = L10n.tr("Localizable", "root.debug.dialog.rescan.title", fallback: "Rescan")
+           public enum Option {
++            /// Deep rescan (from Oct 2025)
++            public static let deep = L10n.tr("Localizable", "root.debug.dialog.rescan.option.deep", fallback: "Deep rescan (from Oct 2025)")
+             /// Full rescan
+             public static let full = L10n.tr("Localizable", "root.debug.dialog.rescan.option.full", fallback: "Full rescan")
+             /// Quick rescan
+diff --git a/modules/Sources/Generated/Resources/en.lproj/Localizable.strings b/modules/Sources/Generated/Resources/en.lproj/Localizable.strings
+index 0a310db2..4fcaf263 100644
+--- a/modules/Sources/Generated/Resources/en.lproj/Localizable.strings
++++ b/modules/Sources/Generated/Resources/en.lproj/Localizable.strings
+@@ -346,6 +346,7 @@
+ "root.debug.dialog.rescan.message" = "Select the rescan you want";
+ "root.debug.dialog.rescan.option.quick" = "Quick rescan";
+ "root.debug.dialog.rescan.option.full" = "Full rescan";
++"root.debug.dialog.rescan.option.deep" = "Deep rescan (from Oct 2025)";
+ "root.debug.alert.rewind.failed.title" = "Rewind failed";
+ "root.debug.alert.rewind.failed.message" = "Error: %@";
+ "root.debug.alert.rewind.cantStartSync.title" = "Can't start sync process after rewind";
+diff --git a/secant-mainnet.entitlements b/secant-mainnet.entitlements
+index 316fbf56..6631ffa6 100644
+--- a/secant-mainnet.entitlements
++++ b/secant-mainnet.entitlements
+@@ -2,17 +2,5 @@
+ <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+ <plist version="1.0">
+ <dict>
+-	<key>com.apple.developer.icloud-container-identifiers</key>
+-	<array>
+-		<string>iCloud.com.electriccoinco.zashi</string>
+-	</array>
+-	<key>com.apple.developer.icloud-services</key>
+-	<array>
+-		<string>CloudDocuments</string>
+-	</array>
+-	<key>com.apple.developer.ubiquity-container-identifiers</key>
+-	<array>
+-		<string>iCloud.com.electriccoinco.zashi</string>
+-	</array>
+ </dict>
+ </plist>
+diff --git a/secant.xcodeproj/project.pbxproj b/secant.xcodeproj/project.pbxproj
+index 94adac27..b0c61c41 100644
+--- a/secant.xcodeproj/project.pbxproj
++++ b/secant.xcodeproj/project.pbxproj
+@@ -188,6 +188,7 @@
+ 		34429C6D28E703CD00F2B929 /* TransactionSendingSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSendingSnapshotTests.swift; sourceTree = "<group>"; };
+ 		3448CB3628E485CB006ADEDB /* NotEnoughFeeSpaceSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotEnoughFeeSpaceSnapshots.swift; sourceTree = "<group>"; };
+ 		34F039B229ABCE8500CF0053 /* WalletConfigProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletConfigProviderTests.swift; sourceTree = "<group>"; };
++		4646DFD82F52C1BC005F2868 /* REMOVE-LoggerProxy.swift.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "REMOVE-LoggerProxy.swift.txt"; sourceTree = "<group>"; };
+ 		9E01F8272833CDA0000EFC57 /* ScanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanTests.swift; sourceTree = "<group>"; };
+ 		9E02B56B27FED475005B809B /* DatabaseFilesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseFilesTests.swift; sourceTree = "<group>"; };
+ 		9E0C0D6F2AFB842B00D69A16 /* TransactionStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionStateTests.swift; sourceTree = "<group>"; };
+@@ -346,6 +347,7 @@
+ 				0D4E7A0626B364170058B01E /* Products */,
+ 				343CF3F429BB5A14009E44DF /* Frameworks */,
+ 				9E318C622CE37F5500FC342A /* Recovered References */,
++				4646DFD82F52C1BC005F2868 /* REMOVE-LoggerProxy.swift.txt */,
+ 			);
+ 			sourceTree = "<group>";
+ 		};
+@@ -1658,24 +1660,26 @@
+ 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+ 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+ 				CODE_SIGN_ENTITLEMENTS = "secant-mainnet.entitlements";
++				CODE_SIGN_IDENTITY = "Apple Development";
+ 				CODE_SIGN_STYLE = Automatic;
+ 				CURRENT_PROJECT_VERSION = 9;
+ 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+ 				DEVELOPMENT_ASSET_PATHS = "\"secant/Preview Content\"";
+-				DEVELOPMENT_TEAM = RLPRR8CPQG;
++				DEVELOPMENT_TEAM = FC2EL78J4P;
+ 				ENABLE_BITCODE = NO;
+ 				ENABLE_PREVIEWS = YES;
+ 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+ 				INFOPLIST_FILE = "secant/secant-mainnet-Info.plist";
+-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
++				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+ 				LD_RUNPATH_SEARCH_PATHS = (
+ 					"$(inherited)",
+ 					"@executable_path/Frameworks",
+ 				);
+ 				MARKETING_VERSION = 1.2;
+ 				OTHER_SWIFT_FLAGS = "";
+-				PRODUCT_BUNDLE_IDENTIFIER = "co.electriccoin.secant-mainnet";
++				PRODUCT_BUNDLE_IDENTIFIER = "co.electriccoin.secant-mainnet-quantus";
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
++				PROVISIONING_PROFILE_SPECIFIER = "";
+ 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG UNREDACTED SECANT_MAINNET";
+ 				SWIFT_VERSION = 5.0;
+ 				TARGETED_DEVICE_FAMILY = 1;
+@@ -1689,23 +1693,25 @@
+ 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+ 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+ 				CODE_SIGN_ENTITLEMENTS = "secant-mainnet.entitlements";
++				CODE_SIGN_IDENTITY = "Apple Development";
+ 				CODE_SIGN_STYLE = Automatic;
+ 				CURRENT_PROJECT_VERSION = 9;
+ 				DEVELOPMENT_ASSET_PATHS = "\"secant/Preview Content\"";
+-				DEVELOPMENT_TEAM = RLPRR8CPQG;
++				DEVELOPMENT_TEAM = FC2EL78J4P;
+ 				ENABLE_BITCODE = NO;
+ 				ENABLE_PREVIEWS = YES;
+ 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+ 				INFOPLIST_FILE = "secant/secant-mainnet-Info.plist";
+-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
++				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+ 				LD_RUNPATH_SEARCH_PATHS = (
+ 					"$(inherited)",
+ 					"@executable_path/Frameworks",
+ 				);
+ 				MARKETING_VERSION = 1.2;
+ 				OTHER_SWIFT_FLAGS = "";
+-				PRODUCT_BUNDLE_IDENTIFIER = "co.electriccoin.secant-mainnet";
++				PRODUCT_BUNDLE_IDENTIFIER = "co.electriccoin.secant-mainnet-quantus";
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
++				PROVISIONING_PROFILE_SPECIFIER = "";
+ 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SECANT_MAINNET;
+ 				SWIFT_VERSION = 5.0;
+ 				TARGETED_DEVICE_FAMILY = 1;
+@@ -1840,24 +1846,26 @@
+ 			buildSettings = {
+ 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-testnet";
+ 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
++				CODE_SIGN_IDENTITY = "Apple Development";
+ 				CODE_SIGN_STYLE = Automatic;
+ 				CURRENT_PROJECT_VERSION = 2;
+ 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+ 				DEVELOPMENT_ASSET_PATHS = "\"secant/Preview Content\"";
+-				DEVELOPMENT_TEAM = RLPRR8CPQG;
++				DEVELOPMENT_TEAM = FC2EL78J4P;
+ 				ENABLE_BITCODE = NO;
+ 				ENABLE_PREVIEWS = YES;
+ 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+ 				INFOPLIST_FILE = "secant/secant-testnet-Info.plist";
+-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
++				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+ 				LD_RUNPATH_SEARCH_PATHS = (
+ 					"$(inherited)",
+ 					"@executable_path/Frameworks",
+ 				);
+ 				MARKETING_VERSION = 1.2;
+ 				OTHER_SWIFT_FLAGS = "";
+-				PRODUCT_BUNDLE_IDENTIFIER = "co.ecc.zashi-testnet";
++				PRODUCT_BUNDLE_IDENTIFIER = "co.ecc.zashi-testnet.quantus-help";
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
++				PROVISIONING_PROFILE_SPECIFIER = "";
+ 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG UNREDACTED SECANT_TESTNET";
+ 				SWIFT_VERSION = 5.0;
+ 				TARGETED_DEVICE_FAMILY = 1;
+@@ -1870,23 +1878,25 @@
+ 			buildSettings = {
+ 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-testnet";
+ 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
++				CODE_SIGN_IDENTITY = "Apple Development";
+ 				CODE_SIGN_STYLE = Automatic;
+ 				CURRENT_PROJECT_VERSION = 2;
+ 				DEVELOPMENT_ASSET_PATHS = "\"secant/Preview Content\"";
+-				DEVELOPMENT_TEAM = RLPRR8CPQG;
++				DEVELOPMENT_TEAM = FC2EL78J4P;
+ 				ENABLE_BITCODE = NO;
+ 				ENABLE_PREVIEWS = YES;
+ 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+ 				INFOPLIST_FILE = "secant/secant-testnet-Info.plist";
+-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
++				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+ 				LD_RUNPATH_SEARCH_PATHS = (
+ 					"$(inherited)",
+ 					"@executable_path/Frameworks",
+ 				);
+ 				MARKETING_VERSION = 1.2;
+ 				OTHER_SWIFT_FLAGS = "";
+-				PRODUCT_BUNDLE_IDENTIFIER = "co.ecc.zashi-testnet";
++				PRODUCT_BUNDLE_IDENTIFIER = "co.ecc.zashi-testnet.quantus-help";
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
++				PROVISIONING_PROFILE_SPECIFIER = "";
+ 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SECANT_TESTNET;
+ 				SWIFT_VERSION = 5.0;
+ 				TARGETED_DEVICE_FAMILY = 1;
+@@ -1993,11 +2003,12 @@
+ 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-testnet";
+ 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+ 				CODE_SIGN_ENTITLEMENTS = "zashi-internal.entitlements";
++				CODE_SIGN_IDENTITY = "Apple Development";
+ 				CODE_SIGN_STYLE = Automatic;
+ 				CURRENT_PROJECT_VERSION = 1;
+ 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+ 				DEVELOPMENT_ASSET_PATHS = "\"secant/Preview Content\"";
+-				DEVELOPMENT_TEAM = RLPRR8CPQG;
++				DEVELOPMENT_TEAM = FC2EL78J4P;
+ 				ENABLE_BITCODE = NO;
+ 				ENABLE_PREVIEWS = YES;
+ 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+@@ -2009,8 +2020,9 @@
+ 				);
+ 				MARKETING_VERSION = 3.0;
+ 				OTHER_SWIFT_FLAGS = "";
+-				PRODUCT_BUNDLE_IDENTIFIER = "co.ecc.zashi-testnet";
++				PRODUCT_BUNDLE_IDENTIFIER = "co.ecc.zashi-testnet-foobar";
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
++				PROVISIONING_PROFILE_SPECIFIER = "";
+ 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG UNREDACTED SECANT_TESTNET";
+ 				SWIFT_VERSION = 5.0;
+ 				TARGETED_DEVICE_FAMILY = 1;
+@@ -2024,10 +2036,11 @@
+ 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-testnet";
+ 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+ 				CODE_SIGN_ENTITLEMENTS = "zashi-internal.entitlements";
++				CODE_SIGN_IDENTITY = "Apple Development";
+ 				CODE_SIGN_STYLE = Automatic;
+ 				CURRENT_PROJECT_VERSION = 1;
+ 				DEVELOPMENT_ASSET_PATHS = "\"secant/Preview Content\"";
+-				DEVELOPMENT_TEAM = RLPRR8CPQG;
++				DEVELOPMENT_TEAM = FC2EL78J4P;
+ 				ENABLE_BITCODE = NO;
+ 				ENABLE_PREVIEWS = YES;
+ 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+@@ -2039,8 +2052,9 @@
+ 				);
+ 				MARKETING_VERSION = 3.0;
+ 				OTHER_SWIFT_FLAGS = "";
+-				PRODUCT_BUNDLE_IDENTIFIER = "co.ecc.zashi-testnet";
++				PRODUCT_BUNDLE_IDENTIFIER = "co.ecc.zashi-testnet-foobar";
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
++				PROVISIONING_PROFILE_SPECIFIER = "";
+ 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SECANT_TESTNET;
+ 				SWIFT_VERSION = 5.0;
+ 				TARGETED_DEVICE_FAMILY = 1;
+@@ -2054,10 +2068,11 @@
+ 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-testnet";
+ 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+ 				CODE_SIGN_ENTITLEMENTS = "zashi-internal.entitlements";
++				CODE_SIGN_IDENTITY = "Apple Development";
+ 				CODE_SIGN_STYLE = Automatic;
+ 				CURRENT_PROJECT_VERSION = 1;
+ 				DEVELOPMENT_ASSET_PATHS = "\"secant/Preview Content\"";
+-				DEVELOPMENT_TEAM = RLPRR8CPQG;
++				DEVELOPMENT_TEAM = FC2EL78J4P;
+ 				ENABLE_BITCODE = NO;
+ 				ENABLE_PREVIEWS = YES;
+ 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+@@ -2069,8 +2084,9 @@
+ 				);
+ 				MARKETING_VERSION = 3.0;
+ 				OTHER_SWIFT_FLAGS = "";
+-				PRODUCT_BUNDLE_IDENTIFIER = "co.ecc.zashi-testnet";
++				PRODUCT_BUNDLE_IDENTIFIER = "co.ecc.zashi-testnet-foobar";
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
++				PROVISIONING_PROFILE_SPECIFIER = "";
+ 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SECANT_TESTNET;
+ 				SWIFT_VERSION = 5.0;
+ 				TARGETED_DEVICE_FAMILY = 1;
+@@ -2100,7 +2116,7 @@
+ 				);
+ 				MARKETING_VERSION = 3.0.0;
+ 				OTHER_SWIFT_FLAGS = "";
+-				PRODUCT_BUNDLE_IDENTIFIER = "co.electriccoin.secant-mainnet";
++				PRODUCT_BUNDLE_IDENTIFIER = "co.electriccoin.secant-mainnet-quantus";
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
+ 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG UNREDACTED SECANT_MAINNET";
+ 				SWIFT_UPCOMING_FEATURE_CONCISE_MAGIC_FILE = NO;
+@@ -2140,7 +2156,7 @@
+ 				);
+ 				MARKETING_VERSION = 3.0.0;
+ 				OTHER_SWIFT_FLAGS = "";
+-				PRODUCT_BUNDLE_IDENTIFIER = "co.electriccoin.secant-mainnet";
++				PRODUCT_BUNDLE_IDENTIFIER = "co.electriccoin.secant-mainnet-quantus";
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
+ 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SECANT_MAINNET;
+ 				SWIFT_UPCOMING_FEATURE_CONCISE_MAGIC_FILE = NO;
+@@ -2222,23 +2238,25 @@
+ 			buildSettings = {
+ 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-testnet";
+ 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
++				CODE_SIGN_IDENTITY = "Apple Development";
+ 				CODE_SIGN_STYLE = Automatic;
+ 				CURRENT_PROJECT_VERSION = 2;
+ 				DEVELOPMENT_ASSET_PATHS = "\"secant/Preview Content\"";
+-				DEVELOPMENT_TEAM = RLPRR8CPQG;
++				DEVELOPMENT_TEAM = FC2EL78J4P;
+ 				ENABLE_BITCODE = NO;
+ 				ENABLE_PREVIEWS = YES;
+ 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+ 				INFOPLIST_FILE = "secant/secant-testnet-Info.plist";
+-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
++				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+ 				LD_RUNPATH_SEARCH_PATHS = (
+ 					"$(inherited)",
+ 					"@executable_path/Frameworks",
+ 				);
+ 				MARKETING_VERSION = 1.2;
+ 				OTHER_SWIFT_FLAGS = "";
+-				PRODUCT_BUNDLE_IDENTIFIER = "co.ecc.zashi-testnet";
++				PRODUCT_BUNDLE_IDENTIFIER = "co.ecc.zashi-testnet.quantus-help";
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
++				PROVISIONING_PROFILE_SPECIFIER = "";
+ 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SECANT_TESTNET;
+ 				SWIFT_VERSION = 5.0;
+ 				TARGETED_DEVICE_FAMILY = 1;
+@@ -2252,23 +2270,25 @@
+ 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+ 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+ 				CODE_SIGN_ENTITLEMENTS = "secant-mainnet.entitlements";
++				CODE_SIGN_IDENTITY = "Apple Development";
+ 				CODE_SIGN_STYLE = Automatic;
+ 				CURRENT_PROJECT_VERSION = 9;
+ 				DEVELOPMENT_ASSET_PATHS = "\"secant/Preview Content\"";
+-				DEVELOPMENT_TEAM = RLPRR8CPQG;
++				DEVELOPMENT_TEAM = FC2EL78J4P;
+ 				ENABLE_BITCODE = NO;
+ 				ENABLE_PREVIEWS = YES;
+ 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+ 				INFOPLIST_FILE = "secant/secant-mainnet-Info.plist";
+-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
++				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+ 				LD_RUNPATH_SEARCH_PATHS = (
+ 					"$(inherited)",
+ 					"@executable_path/Frameworks",
+ 				);
+ 				MARKETING_VERSION = 1.2;
+ 				OTHER_SWIFT_FLAGS = "";
+-				PRODUCT_BUNDLE_IDENTIFIER = "co.electriccoin.secant-mainnet";
++				PRODUCT_BUNDLE_IDENTIFIER = "co.electriccoin.secant-mainnet-quantus";
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
++				PROVISIONING_PROFILE_SPECIFIER = "";
+ 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SECANT_MAINNET;
+ 				SWIFT_VERSION = 5.0;
+ 				TARGETED_DEVICE_FAMILY = 1;
+@@ -2341,7 +2361,7 @@
+ 				);
+ 				MARKETING_VERSION = 3.0.0;
+ 				OTHER_SWIFT_FLAGS = "";
+-				PRODUCT_BUNDLE_IDENTIFIER = "co.electriccoin.secant-mainnet";
++				PRODUCT_BUNDLE_IDENTIFIER = "co.electriccoin.secant-mainnet-quantus";
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
+ 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "SECANT_MAINNET SECANT_DISTRIB";
+ 				SWIFT_UPCOMING_FEATURE_CONCISE_MAGIC_FILE = NO;
+diff --git a/secant.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings b/secant.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+new file mode 100644
+index 00000000..08de0be8
+--- /dev/null
++++ b/secant.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
++<plist version="1.0">
++<dict>
++	<key>IDEWorkspaceSharedSettings_AutocreateContextsIfNeeded</key>
++	<false/>
++</dict>
++</plist>
+diff --git a/secant/Resources/en.lproj/Localizable.strings b/secant/Resources/en.lproj/Localizable.strings
+index 0a310db2..4fcaf263 100644
+--- a/secant/Resources/en.lproj/Localizable.strings
++++ b/secant/Resources/en.lproj/Localizable.strings
+@@ -346,6 +346,7 @@
+ "root.debug.dialog.rescan.message" = "Select the rescan you want";
+ "root.debug.dialog.rescan.option.quick" = "Quick rescan";
+ "root.debug.dialog.rescan.option.full" = "Full rescan";
++"root.debug.dialog.rescan.option.deep" = "Deep rescan (from Oct 2025)";
+ "root.debug.alert.rewind.failed.title" = "Rewind failed";
+ "root.debug.alert.rewind.failed.message" = "Error: %@";
+ "root.debug.alert.rewind.cantStartSync.title" = "Can't start sync process after rewind";
+diff --git a/secant/secant-mainnet-Info.plist b/secant/secant-mainnet-Info.plist
+index 469bffa5..afe2ef13 100644
+--- a/secant/secant-mainnet-Info.plist
++++ b/secant/secant-mainnet-Info.plist
+@@ -71,6 +71,8 @@
+ 		<string>fetch</string>
+ 		<string>processing</string>
+ 	</array>
++	<key>UIDesignRequiresCompatibility</key>
++	<true/>
+ 	<key>UILaunchScreen</key>
+ 	<dict/>
+ 	<key>UILaunchStoryboardName</key>
+@@ -83,7 +85,5 @@
+ 	<array>
+ 		<string>UIInterfaceOrientationPortrait</string>
+ 	</array>
+-	<key>UIDesignRequiresCompatibility</key>
+-	<true/>
+ </dict>
+ </plist>
+diff --git a/secant/secant-testnet-Info.plist b/secant/secant-testnet-Info.plist
+index 2f7fc118..59ed42a9 100644
+--- a/secant/secant-testnet-Info.plist
++++ b/secant/secant-testnet-Info.plist
+@@ -71,6 +71,8 @@
+ 		<string>fetch</string>
+ 		<string>processing</string>
+ 	</array>
++	<key>UIDesignRequiresCompatibility</key>
++	<true/>
+ 	<key>UILaunchScreen</key>
+ 	<dict/>
+ 	<key>UILaunchStoryboardName</key>
+@@ -83,7 +85,5 @@
+ 	<array>
+ 		<string>UIInterfaceOrientationPortrait</string>
+ 	</array>
+-	<key>UIDesignRequiresCompatibility</key>
+-	<true/>
+ </dict>
+ </plist>
+diff --git a/secant/zashi-testnet-Info.plist b/secant/zashi-testnet-Info.plist
+index 43f3c135..e5ef017f 100644
+--- a/secant/zashi-testnet-Info.plist
++++ b/secant/zashi-testnet-Info.plist
+@@ -71,6 +71,8 @@
+ 		<string>fetch</string>
+ 		<string>processing</string>
+ 	</array>
++	<key>UIDesignRequiresCompatibility</key>
++	<false/>
+ 	<key>UILaunchScreen</key>
+ 	<dict/>
+ 	<key>UILaunchStoryboardName</key>
+@@ -83,7 +85,5 @@
+ 	<array>
+ 		<string>UIInterfaceOrientationPortrait</string>
+ 	</array>
+-	<key>UIDesignRequiresCompatibility</key>
+-	<false/>
+ </dict>
+ </plist>
+diff --git a/zashi-internal.entitlements b/zashi-internal.entitlements
+index 1748a6ef..7c7a987d 100644
+--- a/zashi-internal.entitlements
++++ b/zashi-internal.entitlements
+@@ -7,16 +7,8 @@
+ 		<string>applinks:secant.flexa.link</string>
+ 	</array>
+ 	<key>com.apple.developer.icloud-container-identifiers</key>
+-	<array>
+-		<string>iCloud.com.electriccoinco.zashi</string>
+-	</array>
++	<array/>
+ 	<key>com.apple.developer.icloud-services</key>
+-	<array>
+-		<string>CloudDocuments</string>
+-	</array>
+-	<key>com.apple.developer.ubiquity-container-identifiers</key>
+-	<array>
+-		<string>iCloud.com.electriccoinco.zashi</string>
+-	</array>
++	<array/>
+ </dict>
+ </plist>
