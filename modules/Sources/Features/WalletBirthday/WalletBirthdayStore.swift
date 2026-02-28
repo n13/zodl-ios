@@ -27,6 +27,7 @@ public struct WalletBirthday {
     public struct State: Equatable {
         public var birthday = ""
         public var estimatedHeight = BlockHeight(0)
+        public var isRestoring = false
         public var isValidBirthday = false
         public var months: [String] = []
         public var selectedMonth = ""
@@ -89,6 +90,7 @@ public struct WalletBirthday {
                 return .none
 
             case .restoreTapped:
+                state.isRestoring = true
                 return .none
                 
             case .copyBirthdayTapped:

@@ -1,0 +1,1 @@
+// The LoggerProxy.swift file is removed from the project as per instructions.

@@ -58,6 +58,7 @@ public struct AddKeystoneHWWallet {
         case backToHomeTapped
         case binding(BindingAction<AddKeystoneHWWallet.State>)
         case forgetThisDeviceTapped
+        case importKeystoneAccount(BlockHeight)
         case loadedWalletAccounts([WalletAccount], AccountUUID)
         case onAppear
         case readyToScanTapped
@@ -95,6 +96,9 @@ public struct AddKeystoneHWWallet {
                 return .none
 
             case .unlockTapped:
+                return .none
+
+            case .importKeystoneAccount(let birthday):
                 guard let account = state.zcashAccounts, let firstAccount = account.accounts.first else {
                     return .none
                 }
@@ -110,10 +114,12 @@ public struct AddKeystoneHWWallet {
                         )
                         if let uuid {
                             await send(.accountImported(uuid))
+                            do {
+                                for try await _ in sdkSynchronizer.rewind(.height(blockheight: birthday)).values { }
+                            } catch { }
                             await send(.accountImportSucceeded)
                         }
                     } catch {
-                        // TODO: error handling
                         await send(.accountImportFailed)
                     }
                 }

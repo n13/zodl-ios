@@ -14,6 +14,7 @@ import Generated
 // Path
 import AddKeystoneHWWallet
 import Scan
+import WalletBirthday
 
 public struct AddKeystoneHWWalletCoordFlowView: View {
     @Environment(\.colorScheme) var colorScheme
@@ -40,8 +41,14 @@ public struct AddKeystoneHWWalletCoordFlowView: View {
                 switch store.case {
                 case let .accountHWWalletSelection(store):
                     AccountsSelectionView(store: store)
+                case let .estimateBirthdaysDate(store):
+                    WalletBirthdayEstimateDateView(store: store)
+                case let .estimatedBirthday(store):
+                    WalletBirthdayEstimatedHeightView(store: store)
                 case let .scan(store):
                     ScanView(store: store)
+                case let .walletBirthday(store):
+                    WalletBirthdayView(store: store)
                 }
             }
         }

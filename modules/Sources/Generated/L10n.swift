@@ -959,6 +959,8 @@ public enum L10n {
           /// Rescan
           public static let title = L10n.tr("Localizable", "root.debug.dialog.rescan.title", fallback: "Rescan")
           public enum Option {
+            /// Deep rescan (from Oct 2025)
+            public static let deep = L10n.tr("Localizable", "root.debug.dialog.rescan.option.deep", fallback: "Deep rescan (from Oct 2025)")
             /// Full rescan
             public static let full = L10n.tr("Localizable", "root.debug.dialog.rescan.option.full", fallback: "Full rescan")
             /// Quick rescan

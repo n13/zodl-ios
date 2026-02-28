@@ -21,6 +21,7 @@ import RecoveryPhraseDisplay
 import Scan
 import ServerSetup
 import SendFeedback
+import WalletBirthday
 import WhatsNew
 import TorSetup
 
@@ -36,6 +37,8 @@ public struct Settings {
         case advancedSettings(AdvancedSettings)
         case chooseServerSetup(ServerSetup)
         case currencyConversionSetup(CurrencyConversionSetup)
+        case estimateBirthdaysDate(WalletBirthday)
+        case estimatedBirthday(WalletBirthday)
         case exportPrivateData(PrivateDataConsent)
         case exportTransactionHistory(ExportTransactionHistory)
         case recoveryPhrase(RecoveryPhraseDisplay)
@@ -43,6 +46,7 @@ public struct Settings {
         case scan(Scan)
         case sendUsFeedback(SendFeedback)
         case torSetup(TorSetup)
+        case walletBirthday(WalletBirthday)
         case whatsNew(WhatsNew)
     }
     

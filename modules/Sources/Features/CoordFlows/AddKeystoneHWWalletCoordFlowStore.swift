@@ -14,13 +14,17 @@ import AudioServices
 // Path
 import AddKeystoneHWWallet
 import Scan
+import WalletBirthday
 
 @Reducer
 public struct AddKeystoneHWWalletCoordFlow {
     @Reducer
     public enum Path {
         case accountHWWalletSelection(AddKeystoneHWWallet)
+        case estimateBirthdaysDate(WalletBirthday)
+        case estimatedBirthday(WalletBirthday)
         case scan(Scan)
+        case walletBirthday(WalletBirthday)
     }
     
     @ObservableState

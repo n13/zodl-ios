@@ -188,6 +188,21 @@ extension Root {
                 state.path = nil
                 return .none
 
+                // MARK: - Deep Rescan
+
+            case .settings(.path(.element(id: _, action: .advancedSettings(.deepRescanTapped)))):
+                state.path = nil
+                return .run { send in
+                    let targetBirthday: BlockHeight = 3_000_000
+                    print("DEEP_RESCAN: updating stored birthday to \(targetBirthday)")
+                    do {
+                        try walletStorage.updateBirthday(targetBirthday)
+                    } catch {
+                        print("DEEP_RESCAN: failed to update birthday: \(error)")
+                    }
+                    await send(.confirmationDialog(.presented(.deepRescan)))
+                }
+
                 // MARK: - Reset Zashi
 
             case .settings(.path(.element(id: _, action: .resetZashi(.deleteTapped(let areMetadataPreserved))))):

@@ -52,6 +52,7 @@ public struct WalletBirthdayEstimatedHeightView: View {
                 ZashiButton(L10n.ImportWallet.Button.restoreWallet) {
                     store.send(.restoreTapped)
                 }
+                .disabled(store.isRestoring)
                 .padding(.bottom, 24)
             }
             .zashiBack()

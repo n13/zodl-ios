@@ -346,6 +346,7 @@
 "root.debug.dialog.rescan.message" = "Select the rescan you want";
 "root.debug.dialog.rescan.option.quick" = "Quick rescan";
 "root.debug.dialog.rescan.option.full" = "Full rescan";
+"root.debug.dialog.rescan.option.deep" = "Deep rescan (from Oct 2025)";
 "root.debug.alert.rewind.failed.title" = "Rewind failed";
 "root.debug.alert.rewind.failed.message" = "Error: %@";
 "root.debug.alert.rewind.cantStartSync.title" = "Can't start sync process after rewind";

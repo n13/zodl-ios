@@ -15,6 +15,7 @@ import RecoveryPhraseDisplay
 import Scan
 import ServerSetup
 import SendFeedback
+import WalletBirthday
 import WhatsNew
 import TorSetup
 
@@ -128,6 +129,10 @@ public struct SettingsView: View {
                     ServerSetupView(store: store)
                 case let .currencyConversionSetup(store):
                     CurrencyConversionSetupView(store: store)
+                case let .estimateBirthdaysDate(store):
+                    WalletBirthdayEstimateDateView(store: store)
+                case let .estimatedBirthday(store):
+                    WalletBirthdayEstimatedHeightView(store: store)
                 case let .exportPrivateData(store):
                     PrivateDataConsentView(store: store)
                 case let .exportTransactionHistory(store):
@@ -142,6 +147,8 @@ public struct SettingsView: View {
                     SendFeedbackView(store: store)
                 case let .torSetup(store):
                     TorSetupView(store: store)
+                case let .walletBirthday(store):
+                    WalletBirthdayView(store: store)
                 case let .whatsNew(store):
                     WhatsNewView(store: store)
                 }
