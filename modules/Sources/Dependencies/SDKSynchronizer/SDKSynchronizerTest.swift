@@ -269,6 +269,7 @@ extension SDKSynchronizerClient {
             isInitialized: isInitialized,
             importAccount: importAccount,
             rewind: rewind,
+            forceRewind: forceRewind,
             getAllTransactions: getAllTransactions,
             transactionStatesFromZcashTransactions: transactionStatesFromZcashTransactions,
             getMemos: getMemos,

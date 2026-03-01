@@ -10,6 +10,7 @@ import Combine
 import ComposableArchitecture
 import ZcashLightClientKit
 import DatabaseFiles
+import MnemonicClient
 import Models
 import ZcashSDKEnvironment
 import KeystoneSDK
@@ -23,6 +24,7 @@ extension SDKSynchronizerClient: DependencyKey {
         databaseFiles: DatabaseFilesClient = .liveValue
     ) -> Self {
         @Shared(.inMemory(.swapAPIAccess)) var swapAPIAccess: WalletStorage.SwapAPIAccess = .direct
+        @Dependency(\.mnemonic) var mnemonic
         @Dependency(\.userStoredPreferences) var userStoredPreferences
         @Dependency(\.walletStorage) var walletStorage
         @Dependency(\.zcashSDKEnvironment) var zcashSDKEnvironment
@@ -88,7 +90,87 @@ extension SDKSynchronizerClient: DependencyKey {
                 )
             },
             rewind: { synchronizer.rewind($0) },
-            forceRewind: { _ in },
+            forceRewind: { targetHeight in
+                print("FORCE REWIND: Starting force rewind to height \(targetHeight)")
+                let accounts = try await synchronizer.listAccounts()
+                let keystoneAccounts = accounts.filter { $0.keySource != nil }
+
+                synchronizer.stop()
+
+                let fm = FileManager.default
+                let dataDbURL = databaseFiles.dataDbURLFor(network)
+                let backupURL = dataDbURL.appendingPathExtension("forceRewindBackup")
+
+                try? fm.removeItem(at: backupURL)
+                if fm.fileExists(atPath: dataDbURL.path) {
+                    try fm.copyItem(at: dataDbURL, to: backupURL)
+                }
+
+                do {
+                    print("FORCE REWIND: Starting wipe...")
+                    try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+                        var cancellable: AnyCancellable?
+                        cancellable = synchronizer.wipe()
+                            .sink(
+                                receiveCompletion: { completion in
+                                    cancellable?.cancel()
+                                    switch completion {
+                                    case .finished: 
+                                        print("FORCE REWIND: Wipe finished successfully.")
+                                        continuation.resume()
+                                    case .failure(let error): 
+                                        print("FORCE REWIND: Wipe failed with error: \(error)")
+                                        continuation.resume(throwing: error)
+                                    }
+                                },
+                                receiveValue: { _ in }
+                            )
+                    }
+
+                    print("FORCE REWIND: Preparing synchronizer...")
+                    let storedWallet = try walletStorage.exportWallet()
+                    let seedBytes = try mnemonic.toSeed(storedWallet.seedPhrase.value())
+
+                    let result = try await synchronizer.prepare(
+                        with: seedBytes,
+                        walletBirthday: targetHeight,
+                        for: .restoreWallet,
+                        name: "Zodl",
+                        keySource: nil
+                    )
+                    print("FORCE REWIND: Prepare result: \(result)")
+                    guard result == .success else {
+                        throw ZcashError.synchronizerNotPrepared
+                    }
+
+                    for account in keystoneAccounts {
+                        print("FORCE REWIND: Re-importing Keystone account...")
+                        guard let ufvk = account.ufvk else { continue }
+                        _ = try await synchronizer.importAccount(
+                            ufvk: ufvk.stringEncoded,
+                            seedFingerprint: account.seedFingerprint,
+                            zip32AccountIndex: account.hdAccountIndex,
+                            purpose: .spending,
+                            name: account.name ?? "Keystone",
+                            keySource: account.keySource
+                        )
+                    }
+
+                    try walletStorage.updateBirthday(targetHeight)
+                    try? fm.removeItem(at: backupURL)
+
+                    print("FORCE REWIND: Starting synchronizer...")
+                    try await synchronizer.start(retry: false)
+                    print("FORCE REWIND: Done!")
+                } catch {
+                    print("FORCE REWIND: Encountered error: \(error)")
+                    if fm.fileExists(atPath: backupURL.path) {
+                        try? fm.removeItem(at: dataDbURL)
+                        try? fm.moveItem(at: backupURL, to: dataDbURL)
+                    }
+                    throw error
+                }
+            },
             getAllTransactions: { accountUUID in
                 let clearedTransactions = try await synchronizer.allTransactions()
                 

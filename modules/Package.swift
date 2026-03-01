@@ -130,6 +130,7 @@ let package = Package(
                 "Models",
                 "SDKSynchronizer",
                 "UIComponents",
+                "WalletStorage",
                 "ZcashSDKEnvironment",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
                 .product(name: "ZcashLightClientKit", package: "zcash-swift-wallet-sdk"),
@@ -716,6 +717,7 @@ let package = Package(
             name: "SDKSynchronizer",
             dependencies: [
                 "DatabaseFiles",
+                "MnemonicClient",
                 "Models",
                 "UserPreferencesStorage",
                 "WalletStorage",

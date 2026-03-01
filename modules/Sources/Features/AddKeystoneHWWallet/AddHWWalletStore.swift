@@ -15,6 +15,7 @@ import ZcashLightClientKit
 import DerivationTool
 import ZcashSDKEnvironment
 import KeystoneHandler
+import WalletStorage
 
 @Reducer
 public struct AddKeystoneHWWallet {
@@ -70,6 +71,7 @@ public struct AddKeystoneHWWallet {
 
     @Dependency(\.keystoneHandler) var keystoneHandler
     @Dependency(\.sdkSynchronizer) var sdkSynchronizer
+    @Dependency(\.walletStorage) var walletStorage
 
     public var body: some Reducer<State, Action> {
         BindingReducer()
@@ -114,9 +116,13 @@ public struct AddKeystoneHWWallet {
                         )
                         if let uuid {
                             await send(.accountImported(uuid))
-                            do {
-                                try await sdkSynchronizer.forceRewind(birthday)
-                            } catch { }
+                            let storedBirthday = try? walletStorage.exportWallet().birthday?.value()
+                            let currentBirthday = storedBirthday ?? BlockHeight.max
+                            if birthday < currentBirthday {
+                                do {
+                                    try await sdkSynchronizer.forceRewind(birthday)
+                                } catch { }
+                            }
                             await send(.accountImportSucceeded)
                         }
                     } catch {
