@@ -24,6 +24,7 @@ import AutolockHandler
 import UIComponents
 import LocalAuthenticationHandler
 import DeeplinkWarning
+import PaymentLink
 import URIParser
 import OSStatusError
 import AddressBookClient
@@ -93,6 +94,8 @@ public struct Root {
         public var exportLogsState: ExportLogs.State
         @Shared(.inMemory(.featureFlags)) public var featureFlags: FeatureFlags = .initial
         public var homeState: Home.State = .initial
+        public var inviteInProgress = false
+        public var inviteRedeemInProgress = false
         public var isLockedInKeychainUnavailableState = false
         public var isRestoringWallet = false
         @Shared(.appStorage(.lastAuthenticationTimestamp)) public var lastAuthenticationTimestamp: Int = 0
@@ -196,6 +199,11 @@ public struct Root {
         case flexaTransactionFailed(String)
         case home(Home.Action)
         case initialization(InitializationAction)
+        case inviteSendSucceeded(URL)
+        case inviteFailed(String)
+        case redeemInvite(URL)
+        case redeemInviteSucceeded(Zatoshi)
+        case redeemInviteFailed(String)
         case notEnoughFreeSpace(NotEnoughFreeSpace.Action)
         case resetZashiFinishProcessing
         case resetZashiKeychainFailed(OSStatus)
@@ -288,6 +296,7 @@ public struct Root {
     @Dependency(\.localAuthentication) var localAuthentication
     @Dependency(\.mainQueue) var mainQueue
     @Dependency(\.mnemonic) var mnemonic
+    @Dependency(\.paymentLink) var paymentLink
     @Dependency(\.numberFormatter) var numberFormatter
     @Dependency(\.pasteboard) var pasteboard
     @Dependency(\.sdkSynchronizer) var sdkSynchronizer
@@ -413,6 +422,8 @@ public struct Root {
         swapsReduce()
         
         checkFundsReduce()
+        
+        inviteReduce()
     }
     
     public var body: some Reducer<State, Action> {

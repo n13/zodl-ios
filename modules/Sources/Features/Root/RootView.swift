@@ -281,6 +281,30 @@ private extension RootView {
                         )
                     }
                     .animation(.easeInOut(duration: 0.3), value: store.path)
+                    .overlay {
+                        if store.inviteInProgress || store.inviteRedeemInProgress {
+                            ZStack {
+                                Color.black.opacity(0.5)
+                                    .ignoresSafeArea()
+                                VStack(spacing: 16) {
+                                    ProgressView()
+                                        .progressViewStyle(.circular)
+                                        .tint(.white)
+                                        .scaleEffect(1.5)
+                                    Text(store.inviteRedeemInProgress
+                                         ? "Redeeming invite..."
+                                         : "Sending invite...")
+                                        .foregroundColor(.white)
+                                        .font(.headline)
+                                }
+                                .padding(32)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .fill(Color.black.opacity(0.8))
+                                )
+                            }
+                        }
+                    }
                     .overlayedWithSplash(store.splashAppeared) {
                         store.send(.splashRemovalRequested)
                     }

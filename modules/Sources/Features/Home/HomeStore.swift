@@ -81,6 +81,7 @@ public struct Home {
         case accountSwitchTapped
         case addKeystoneHWWalletTapped
         case alert(PresentationAction<Action>)
+        case inviteTapped
         case binding(BindingAction<Home.State>)
         case buyTapped
         case currencyConversionCloseTapped
@@ -217,6 +218,9 @@ public struct Home {
             case .moreInMoreTapped:
                 state.moreRequest = false
                 return .send(.settingsTapped)
+
+            case .inviteTapped:
+                return .none
 
             case .buyTapped:
                 return .none

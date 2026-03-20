@@ -62,11 +62,9 @@ extension Root {
                 state.destinationState.destination = destination
                 return .none
 
-            case .destination(.deeplink(let url)):
-                if let _ = uriParser.checkRP(url.absoluteString, zcashSDKEnvironment.network.networkType) {
-                    // The deeplink is some zip321, we ignore it and let users know in a warning screen
-                    return .send(.destination(.updateDestination(.deeplinkWarning)))
-                }
+            case .destination(.deeplink):
+                // Handled by inviteReduce() - invite links are processed there,
+                // non-invite ZIP-321 links trigger deeplinkWarning
                 return .none
 
             case .destination(.deeplinkHome):
@@ -158,6 +156,8 @@ private extension Root {
             return .destination(.deeplinkHome)
         case let .send(amount, address, memo):
             return .destination(.deeplinkSend(Zatoshi(Int64(amount)), address, memo))
+        case .invite(let url):
+            return .redeemInvite(url)
         }
     }
 }

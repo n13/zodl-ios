@@ -78,6 +78,25 @@ public struct HomeView: View {
                 .padding(.top, 24)
                 .screenHorizontalPadding()
 
+                Button {
+                    store.send(.inviteTapped)
+                } label: {
+                    HStack(spacing: 8) {
+                        Image(systemName: "paperplane.fill")
+                            .font(.system(size: 14))
+                        Text("Invite a Friend")
+                            .zFont(.semiBold, size: 14, style: Design.Btns.Tertiary.fg)
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 10)
+                    .background {
+                        RoundedRectangle(cornerRadius: Design.Radius._2xl)
+                            .fill(Design.Btns.Tertiary.bg.color(colorScheme))
+                    }
+                }
+                .padding(.top, 12)
+                .screenHorizontalPadding()
+
                 SmartBannerView(
                     store: store.scope(
                         state: \.smartBannerState,
